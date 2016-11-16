@@ -1,6 +1,7 @@
 using Nancy;
 using System.Collections.Generic;
 using Tamagotchi.Objects;
+using System;
 
 namespace Tamagotchi
 {
@@ -27,18 +28,25 @@ namespace Tamagotchi
       };
       Post["/{action}/{id}"] = parameters =>
       {
+        Pet.PassTime();
         Pet currentPet = Pet.Find(parameters.id);
         if (parameters.action == "feed")
         {
-          currentPet.SetFood(50);
+          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
+          currentPet.SetFood(currentPet.GetFood() + 10);
+          }
         }
         else if (parameters.action == "love")
         {
-          currentPet.SetLove(50);
+          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
+          currentPet.SetLove(currentPet.GetLove() + 10);
+          }
         }
         else if (parameters.action == "rest")
         {
-          currentPet.SetRest(50);
+          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
+          currentPet.SetRest(currentPet.GetRest() + 10);
+          }
         }
         return View["pet.cshtml", currentPet];
       };

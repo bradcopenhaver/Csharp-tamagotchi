@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace Tamagotchi.Objects
 {
@@ -69,6 +70,16 @@ namespace Tamagotchi.Objects
     {
       return _petList[searchId-1];
     }
+    public static void PassTime()
+    {
+      foreach(Pet pet in _petList)
+      {
+        Random rnd = new Random();
+        pet.SetFood(pet.GetFood() - rnd.Next(5,10));
+        pet.SetLove(pet.GetLove() - rnd.Next(2, 12));
+        pet.SetRest(pet.GetRest() - rnd.Next(1, 5));
+      };
+    }
     public int GetId() {
       return _Id;
     }
@@ -96,5 +107,6 @@ namespace Tamagotchi.Objects
         return "Pet Type Invalid";
       }
     }
+
   }
 }
