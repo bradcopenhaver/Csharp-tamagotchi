@@ -16,7 +16,7 @@ namespace Tamagotchi
       };
       Post["/pets"] = _ =>
       {
-        Pet newPet = new Pet(Request.Form["petName"]);
+        Pet newPet = new Pet(Request.Form["petName"], Request.Form["petType"]);
         List<Pet> allPets = Pet.GetAll();
         return View["pets.cshtml", allPets];
       };

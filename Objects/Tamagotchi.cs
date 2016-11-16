@@ -9,11 +9,13 @@ namespace Tamagotchi.Objects
     private int _currentLove = 100;
     private int _currentRest = 100;
     private int _Id;
+    private string _petType;
     private static List<Pet> _petList = new List<Pet>{};
 
-    public Pet (string PetName)
+    public Pet (string PetName, string PetType)
     {
       _petName = PetName;
+      _petType = PetType;
       _petList.Add(this);
       _Id = _petList.Count;
     }
@@ -78,6 +80,21 @@ namespace Tamagotchi.Objects
     }
     public string GetRestStatus() {
       return "tired";
+    }
+    public string GetPetType() {
+      return _petType;
+    }
+
+    public string GetImg() {
+      if (_petType == "dog") {
+        return "Content/img/dog.gif";
+      } else if (_petType == "pig") {
+        return "Content/img/gpig.gif";
+      } else if (_petType == "panda") {
+        return "Content/img/rpanda.gif";
+      } else {
+        return "Pet Type Invalid";
+      }
     }
   }
 }
