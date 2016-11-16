@@ -1,8 +1,16 @@
 <h1>Super Fun Time Pet Simulator</h1>
 <h3>@Model.GetName()</h3>
 <img src="../@Model.GetImg()" alt="picture of animal"><br>
-<p>@Model.GetName() is @Model.GetFoodStatus()</p>
-<p>@Model.GetName() is @Model.GetLoveStatus()</p>
-<p>@Model.GetName() is @Model.GetRestStatus()</p>
-<p>@Model.GetName() is @Model.GetPetType()</p>
+<form class="" action="/feed/@Model.GetId()" method="post">
+  <p>@Model.GetName() is @Model.GetFood()</p>
+  <button name="food" type="submit">Feed @Model.GetName()</button>
+</form>
+<form class="" action="/love/@Model.GetId()" method="post">
+  <p>@Model.GetName() is @Model.GetLove()</p>
+  <button name="love">Play with @Model.GetName()</button>
+</form>
+<form class="" action="/rest/@Model.GetId()" method="post">
+  <p>@Model.GetName() is @Model.GetRest()</p>
+  <button name="rest">Put @Model.GetName() to bed</button>
+</form>
 <p><a href="/pets">Return to pet list.</a></p>

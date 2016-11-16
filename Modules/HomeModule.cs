@@ -25,6 +25,23 @@ namespace Tamagotchi
         Pet currentPet = Pet.Find(parameters.id);
         return View["pet.cshtml", currentPet];
       };
+      Post["/{action}/{id}"] = parameters =>
+      {
+        Pet currentPet = Pet.Find(parameters.id);
+        if (parameters.action == "feed")
+        {
+          currentPet.SetFood(50);
+        }
+        else if (parameters.action == "love")
+        {
+          currentPet.SetLove(50);
+        }
+        else if (parameters.action == "rest")
+        {
+          currentPet.SetRest(50);
+        }
+        return View["pet.cshtml", currentPet];
+      };
     }
   }
 }
