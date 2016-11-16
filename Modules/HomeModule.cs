@@ -1,7 +1,8 @@
 using Nancy;
 using System.Collections.Generic;
+using Tamagotchi.Objects;
 
-namespace EnterNamespaceHere //replace with your desired namespace
+namespace Tamagotchi
 {
   public class HomeModule : NancyModule
   {
