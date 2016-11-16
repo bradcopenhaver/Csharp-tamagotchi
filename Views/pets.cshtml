@@ -3,7 +3,11 @@
 <ul>
 @foreach (var pet in Model)
 {
-  <li><a href="/pet/@pet.GetId()">@pet.GetName()</a></p>
+  if (pet.GetAlive()) {
+  <li><a href="/pet/@pet.GetId()">@pet.GetName()</a></li><br>
+  } else {
+    <li>@pet.GetName() (R.I.P.)</li><br>
+  }
 }
 </ul>
 <p><a href="/">Create another pet.</a></p>

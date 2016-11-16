@@ -32,21 +32,15 @@ namespace Tamagotchi
         Pet currentPet = Pet.Find(parameters.id);
         if (parameters.action == "feed")
         {
-          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
-          currentPet.SetFood(currentPet.GetFood() + 10);
-          }
+          currentPet.SetFood(currentPet.GetFood() + 30);
         }
         else if (parameters.action == "love")
         {
-          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
-          currentPet.SetLove(currentPet.GetLove() + 10);
-          }
+          currentPet.SetLove(currentPet.GetLove() + 20);
         }
         else if (parameters.action == "rest")
         {
-          if (currentPet.GetFood() >= 5 && currentPet.GetLove() >= 5 && currentPet.GetRest() >= 5) {
-          currentPet.SetRest(currentPet.GetRest() + 10);
-          }
+          currentPet.SetRest(currentPet.GetRest() + 60);          
         }
         return View["pet.cshtml", currentPet];
       };

@@ -22,6 +22,10 @@ namespace Tamagotchi.Objects
       _Id = _petList.Count;
     }
 
+    public bool GetAlive() {
+      return _isAlive;
+    }
+
     public void SetName(string newName)
     {
       _petName = newName;
@@ -76,7 +80,6 @@ namespace Tamagotchi.Objects
       foreach (Pet pet in _petList) {
         if (pet._isAlive == true && pet.GetFood() <= 0) {
           System.Console.WriteLine("Dude, " + pet.GetName() + " died. Wow.");
-          pet.SetName(pet.GetName() + "(R.I.P.)");
           pet._isAlive = false;
         }
       }
@@ -103,13 +106,70 @@ namespace Tamagotchi.Objects
       return _Id;
     }
     public string GetFoodStatus() {
-      return "hungry";
+      if (_currentFood > 100)
+      {
+        return "stuffed!";
+      }
+      else if (_currentFood > 60)
+      {
+        return "full.";
+      }
+      else if (_currentFood > 25)
+      {
+        return "hungry.";
+      }
+      else if (_currentFood > 0)
+      {
+        return "starving!";
+      }
+      else
+      {
+        return "dead. :(";
+      }
     }
     public string GetLoveStatus() {
-      return "lonely";
+      if (_currentLove > 100)
+      {
+        return "ecstatic!";
+      }
+      else if (_currentLove > 60)
+      {
+        return "happy.";
+      }
+      else if (_currentLove > 25)
+      {
+        return "sad.";
+      }
+      else if (_currentLove > 0)
+      {
+        return "depressed!";
+      }
+      else
+      {
+        return "in a very bad place. :(";
+      }
     }
     public string GetRestStatus() {
-      return "tired";
+      if (_currentRest > 100)
+      {
+        return "bouncing off the walls!";
+      }
+      else if (_currentRest > 60)
+      {
+        return "awake.";
+      }
+      else if (_currentRest > 25)
+      {
+        return "sleepy.";
+      }
+      else if (_currentRest > 0)
+      {
+        return "exhausted!";
+      }
+      else
+      {
+        return "barely able to stand up. :(";
+      }
     }
     public string GetPetType() {
       return _petType;
