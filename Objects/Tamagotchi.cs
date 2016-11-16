@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Tamagotchi.Objects
 {
-  public class Pets
+  public class Pet
   {
     private string _petName;
     private int _currentFood = 100;
@@ -63,9 +63,21 @@ namespace Tamagotchi.Objects
       return _petList;
     }
 
-    public static Task Find(int searchId)
+    public static Pet Find(int searchId)
     {
       return _petList[searchId-1];
+    }
+    public int GetId() {
+      return _Id;
+    }
+    public string GetFoodStatus() {
+      return "hungry";
+    }
+    public string GetLoveStatus() {
+      return "lonely";
+    }
+    public string GetRestStatus() {
+      return "tired";
     }
   }
 }

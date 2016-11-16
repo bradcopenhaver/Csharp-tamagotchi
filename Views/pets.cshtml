@@ -1,0 +1,9 @@
+<h1>Super Fun Time Pet Simulator</h1>
+<h3>Current Pets</h3>
+<ul>
+@foreach (var pet in Model)
+{
+  <li><a href="/pet/@pet.GetId()">@pet.GetName()</a></p>
+}
+</ul>
+<p><a href="/">Create another pet.</a></p>
