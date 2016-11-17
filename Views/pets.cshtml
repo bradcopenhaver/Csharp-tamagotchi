@@ -1,13 +1,26 @@
-<h1>Super Fun Time Pet Simulator</h1>
-<h3>Current Pets</h3>
-<ul>
-@foreach (var pet in Model)
-{
-  if (pet.GetAlive()) {
-  <li><a href="/pet/@pet.GetId()">@pet.GetName()</a></li><br>
-  } else {
-    <li>@pet.GetName() (R.I.P.)</li><br>
+<head>
+  <meta charset="utf-8">
+  <title>Pet Menu</title>
+  <link rel="stylesheet" href="../Content/css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="../Content/css/styles.css" type="text/css">
+</head>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <div class="well">
+
+
+  <h1>Super Fun Time Pet Simulator</h1>
+  <h3>Current Pets</h3>
+  <ul>
+  @foreach (var pet in Model)
+  {
+    if (pet.GetAlive()) {
+    <li><a href="/pet/@pet.GetId()">@pet.GetName()</a></li><br>
+    } else {
+      <li>@pet.GetName() (R.I.P.)</li><br>
+    }
   }
-}
-</ul>
-<p><a href="/">Create another pet.</a></p>
+  </ul>
+  <p><a href="/">Create another pet.</a></p>
+  </div>
+</div>

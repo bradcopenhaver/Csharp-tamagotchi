@@ -1,16 +1,42 @@
-<h1>Super Fun Time Pet Simulator</h1>
-<h3>@Model.GetName()</h3>
-<img src="../@Model.GetImg()" alt="picture of animal"><br>
-<form class="" action="/feed/@Model.GetId()" method="post">
-  <p>@Model.GetName() is @Model.GetFoodStatus()</p>
-  <button name="food" type="submit">Feed @Model.GetName()</button>
-</form>
-<form class="" action="/love/@Model.GetId()" method="post">
-  <p>@Model.GetName() is @Model.GetLoveStatus()</p>
-  <button name="love">Play with @Model.GetName()</button>
-</form>
-<form class="" action="/rest/@Model.GetId()" method="post">
-  <p>@Model.GetName() is @Model.GetRestStatus()</p>
-  <button name="rest">Put @Model.GetName() to bed</button>
-</form>
-<p><a href="/pets">Return to pet list.</a></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>@Model.GetName()</title>
+    <link rel="stylesheet" href="../Content/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../Content/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="well">
+        <h1>Super Fun Time Pet Simulator</h1>
+        <h3>@Model.GetName()</h3>
+        <img class="centered" src="../@Model.GetImg()" alt="picture of animal"><br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <form class="" action="/feed/@Model.GetId()" method="post">
+                <p>@Model.GetName() is @Model.GetFoodStatus()</p>
+                <button name="food" type="submit">Feed @Model.GetName()</button>
+              </form>
+            </div>
+            <div class="col-md-4">
+              <form class="" action="/love/@Model.GetId()" method="post">
+                <p>@Model.GetName() is @Model.GetLoveStatus()</p>
+                <button name="love">Play with @Model.GetName()</button>
+              </form>
+              <p id="returnButton"><a href="/pets">Return to pet list.</a></p>
+            </div>
+            <div class="col-md-4">
+              <form class="" action="/rest/@Model.GetId()" method="post">
+                <p>@Model.GetName() is @Model.GetRestStatus()</p>
+                <button name="rest">Put @Model.GetName() to bed</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

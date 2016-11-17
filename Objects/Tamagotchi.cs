@@ -6,9 +6,9 @@ namespace Tamagotchi.Objects
   public class Pet
   {
     private string _petName;
-    private int _currentFood = 100;
-    private int _currentLove = 100;
-    private int _currentRest = 100;
+    private int _currentFood;
+    private int _currentLove;
+    private int _currentRest;
     private int _Id;
     private string _petType;
     private bool _isAlive = true;
@@ -16,6 +16,10 @@ namespace Tamagotchi.Objects
 
     public Pet (string PetName, string PetType)
     {
+      Random rnd = new Random();
+      _currentFood = rnd.Next(55,85);
+      _currentLove = rnd.Next(55,85);
+      _currentRest = rnd.Next(55,85);
       _petName = PetName;
       _petType = PetType;
       _petList.Add(this);
@@ -92,8 +96,8 @@ namespace Tamagotchi.Objects
       {
         if (pet._isAlive == true) {
           Random rnd = new Random(pet.GetId()+rnd1.Next(1,100));
-          pet.SetFood(pet.GetFood() - rnd.Next(5,10));
-          pet.SetLove(pet.GetLove() - rnd.Next(2, 12));
+          pet.SetFood(pet.GetFood() - rnd.Next(2,7));
+          pet.SetLove(pet.GetLove() - rnd.Next(8, 15));
           pet.SetRest(pet.GetRest() - rnd.Next(1, 5));
         }
       };

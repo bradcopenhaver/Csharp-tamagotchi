@@ -1,0 +1,45 @@
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  background-image: url("../../Content/img/grass.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#returnButton {
+  margin-top: 5%;
+  padding: 0;
+}
+
+ul {
+  display: inline-block;
+  margin-left: 1.5%;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+button {
+  color: black;
+}
+
+.well {
+  color: black;
+  background: rgba(255, 255, 255, 0.4);
+  border-color: black;
+}
+
+a {
+  color: blue;
+}
